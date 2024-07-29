@@ -436,6 +436,12 @@ class KexAlgorithm(Technology):
         null=True
     )
 
+    is_ephemeral = models.BooleanField(
+        default=False,
+        null=False,
+    )
+    pass
+
 
 class AuthAlgorithm(Technology):
     class Meta(Technology.Meta):
@@ -452,6 +458,22 @@ class EncAlgorithm(Technology):
         default=False,
         null=True
     )
+
+    key_size = models.IntegerField(
+        default=None,
+        null=True,
+    )
+
+    block_size = models.IntegerField(
+        default=None,
+        null=True,
+    )
+
+    is_stream = models.BooleanField(
+        default=False,
+        null=True,
+    )
+    pass
 
 
 class HashAlgorithm(Technology):

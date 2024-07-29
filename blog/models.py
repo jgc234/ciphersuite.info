@@ -126,8 +126,8 @@ class Tag(models.Model):
 
 def slugify(text):
     """Replaces whitespace with dashes and removes other special symbols."""
-    concatenated = re.sub('\s+', '-', text.lower())
-    return re.sub('[^A-Za-z0-9_-]', '', concatenated)
+    concatenated = re.sub(r'\s+', '-', text.lower())
+    return re.sub(r'[^A-Za-z0-9_-]', '', concatenated)
 
 @receiver(pre_save, sender=Post)
 def create_slug_from_post_title(sender, instance, *args, **kwargs):
